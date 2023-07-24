@@ -7,6 +7,7 @@
   - [Desarrollo de paquete Models](#desarrollo-de-paquete-models)
   - [Desarrollo de paquete Secret Manager](#desarrollo-de-paquete-secret-manager)
   - [Desarrollo de paquete Tools completamos BD](#desarrollo-de-paquete-tools-completamos-bd)
+  - [Compilar nuestro Lambda y subir a AWS](#compilar-nuestro-lambda-y-subir-a-aws)
 
 ## Setup
 
@@ -518,6 +519,55 @@ func ValidParameters() bool {
 
 	return getParameter
 }
+```
+
+## Compilar nuestro Lambda y subir a AWS
+
+Configurar las variables de entorno
+
+`.gitignore`
+
+```BASH
+main
+main.zip
+subo.bat
+```
+
+`subo.bat`
+
+```BASH
+git add .
+git commit -m "Ultimo Commit"
+git push
+set GOOS=linux
+set GOARCH=amd64
+go build main.go
+del main.zip
+tar.exe -a -cf main.zip main
+```
+
+```BASH
+subo.bat
+```
+
+https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1
+
+![](docs/images/img05.png)
+
+https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions/gambitUser?tab=code
+
+![](docs/images/img06.png)
+
+![](docs/images/img07.png)
+
+![](docs/images/img08.png)
+
+```BASH
+
+```
+
+```BASH
+
 ```
 
 ---
