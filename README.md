@@ -1,5 +1,0 @@
-# Backend Go
-
-Hello world!
-
----
